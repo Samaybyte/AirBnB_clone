@@ -15,6 +15,7 @@ class BaseModel:
             -**kwargs:dict of key-values argument
         """
         if kwargs is not None and kwargs != {}:
+            del kwargs['__class__']
             for key in kwargs:
                 if key == 'created_at':
                     self.__dict__['created_at'] = datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
