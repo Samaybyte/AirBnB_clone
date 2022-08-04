@@ -97,6 +97,28 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str_display["name"], base.name)
         self.assertEqual(str_display["age"], base.age)
 
+    def test_4_instantiation(self):
+        """Test instantiation of the **kwargs"""
+        base = BaseModel()
+        base.name = "Muluneh sami"
+        base.number = 45
+        base_json = base.to_dict()
+        base_new = BaseModel(**base_json)
+        self.assertEqual(base_new.to_dict(), base.to_dict())
+
+    def test_4_instantiation_dict(self):
+        """Test instantiation with **kwargs in dict file"""
+        dict_file = {"__class__": "BaseModel",
+                     "updated_at": datetime(2022, 8, 4, 15, 13, 59, 123456).isoformat(),
+                     "created_at": datetime.now().isoformat(),
+                     "id": uuid.uuid4(),
+                     "var": "foobar",
+                     "int": 108,
+                     "float": 3.14
+                     }
+        var = BaseModel(**dict_file)
+        self.assertEqual(var.to_dict(), dict_file)
+
 
 if __name__ == '__main__':
     unittest.main()
