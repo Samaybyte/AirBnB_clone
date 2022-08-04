@@ -119,6 +119,19 @@ class TestBaseModel(unittest.TestCase):
         var = BaseModel(**dict_file)
         self.assertEqual(var.to_dict(), dict_file)
 
+    def test_5_save(self):
+        """Tests that storage.save() is called from save()."""
+        self.resetStorage()
+        base = BaseModel()
+        base.save()
+        key = "{}.{}".format(type(base).__name__, base.id)
+        dict_file = {key: base.to_dict()}
+        self.assertTrue(os.path.isfile(FileStorage._FileStorage__file_path))
+        with open(FileStorage._FileStorage__file_path, "r", encoding="utf-8") as f:
+            self.assertEqual(len(f.read()), len(json.dumps(dict_file)))
+            f.seek(0)
+            self.assertEqual(json.load(f), dict_file)
+
 
 if __name__ == '__main__':
     unittest.main()
