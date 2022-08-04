@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Unittest module for the BaseModel Class """
 import time
-
 from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
@@ -10,6 +9,8 @@ import json
 import uuid
 import unittest
 import os
+import contextlib
+from io import StringIO
 
 
 class TestBaseModel(unittest.TestCase):
@@ -45,9 +46,30 @@ class TestBaseModel(unittest.TestCase):
         message = "__init__() missing 1 required position argument:'self"
         self.assertEqual(str(f.exception), message)
 
+    def test_3_init_many_args(self):
+        """Test __init__ with many arguments"""
+        self.resetStorage()
+        args = [i for i in range(10000)]
+        base = BaseModel(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+        base = BaseModel(*args)
+
+    def test_3_attributes(self):
+        """Test attributes fot the instance of the BaseModel class"""
+        attributes = storage.attribute()["BaseModel"]
+        base = BaseModel()
+        for key, value in attributes.items():
+            self.assertEqual(type(getattr(base, key, None)), value)
+            self.assertTrue(hash(base, key))
+
     def test_3_str(self):
         """Test for the __str__ methods"""
-        base = BaseModel()
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            base = BaseModel()
+            obj_print = base.__str__()
+            print(base)
+        output = temp_stdout.getvalue().strip()
+        self.assertEqual(output, obj_print)
 
     def test_3_id(self):
         """Test for the unique used id"""
