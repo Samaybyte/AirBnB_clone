@@ -84,10 +84,10 @@ class TestBaseModel(unittest.TestCase):
         date_diff = base.updated_at - current_date
         self.assertTrue(abs(date_diff.total_second()) < 0.01)
 
-    def test3_to_dict(self):
+    def test_3_to_dict(self):
         """Test the to_dict() method"""
         base = BaseModel()
-        base.name = "Muluneh"
+        base.name = "Muluneh_Sami"
         base.age = 30
         str_display = base.to_dict()
         self.assertEqual(str_display["id"].base.id)
@@ -96,3 +96,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str_display["updated_at"], base.updated_at.isoformat())
         self.assertEqual(str_display["name"], base.name)
         self.assertEqual(str_display["age"], base.age)
+
+
+if __name__ == '__main__':
+    unittest.main()
