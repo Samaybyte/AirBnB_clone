@@ -86,7 +86,7 @@ class TestBaseModel(unittest.TestCase):
         """Tests the public instance method to_dict()."""
 
         b = BaseModel()
-        b.name = "Laura"
+        b.name = "Muluneh"
         b.age = 23
         d = b.to_dict()
         self.assertEqual(d["id"], b.id)
@@ -129,3 +129,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(update_time, b.updated_at)
         with self.assertRaises(TypeError):
             b.save(None)
+
+
+if __name__ == '__main__':
+    unittest.main()
