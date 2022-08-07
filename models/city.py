@@ -8,4 +8,3 @@ class City(BaseModel):
     def __init__(self):
         self.sate_id = ''
         self.name = ''
-
