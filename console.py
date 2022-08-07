@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
 AirBnB Console
-
 """
 
 import cmd
