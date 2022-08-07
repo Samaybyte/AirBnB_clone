@@ -7,4 +7,3 @@ class Amenity(BaseModel):
     """class to represent the Amenity"""
     def __init__(self):
         self.name = ''
-
