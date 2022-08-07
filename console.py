@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
+
 AirBnB Console
+
 """
 
 import cmd
@@ -12,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
     intro = 'Welcome to the Airbnb console. Type help or ? to list commands.\n'
     prompt = '(hobnob) '
 
-    def __init__(self, completekey ='tab', stdin=None, stdout=None):
+    def __init__(self, completekey='tab', stdin=None, stdout=None):
         """init method"""
         super().__init__(completekey, stdin, stdout)
 
