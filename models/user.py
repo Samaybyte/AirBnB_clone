@@ -5,9 +5,7 @@ from models.base_model import BaseModel
 
 class User:
     """class for user"""
-    def __init__(self):
-        """Initialize the public class attribute"""
-        self.email = ''
-        self.password = ''
-        self.first_name = ''
-        self.last_name = ''
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
