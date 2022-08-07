@@ -20,7 +20,7 @@ import shlex
 
 class HBNBCommand(cmd.Cmd):
     """ cmd clone"""
-    prompt = '(hbnb) '
+    prompt = '(hbnb)'
     l_classes = ['BaseModel', 'User', 'Amenity',
                  'Place', 'City', 'State', 'Review']
 
