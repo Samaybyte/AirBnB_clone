@@ -18,9 +18,11 @@ class BaseModel:
             del kwargs['__class__']
             for key in kwargs:
                 if key == 'created_at':
-                    self.__dict__['created_at'] = datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.__dict__['created_at'] = datetime.strptime(
+                        kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == 'updated_at':
-                    self.__dict__['updated_at'] = datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.__dict__['updated_at'] = datetime.strptime(
+                        kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
                 else:
                     self.__dict__[key] = kwargs[key]
         else:
@@ -31,7 +33,8 @@ class BaseModel:
 
     def __str__(self):
         """Return the string representation of an instance"""
-        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            type(self).__name__, self.id, self.__dict__)
 
     def save(self):
         """Update the update_at attribute with the current datetime."""
