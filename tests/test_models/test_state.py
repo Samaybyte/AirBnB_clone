@@ -16,13 +16,5 @@ class TestStateClass(unittest.TestCase):
         self.assertIsInstance(state, State)
 
 
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
