@@ -5,6 +5,5 @@ from models.base_model import BaseModel
 
 class City(BaseModel):
     """class for representing the city"""
-    def __init__(self):
-        self.sate_id = ''
-        self.name = ''
+    sate_id = ""
+    name = ""
