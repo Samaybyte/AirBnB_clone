@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html, body {
     min-height: 100vh;
 }
@@ -11,18 +10,3 @@ body {
     display: flex;
     flex-direction: column;
 }
-=======
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  color: #484848;
-  font-size: 14px;
-  font-family: circular, "Helvetica Neue", "Helvetica,Arial,sans-serif";
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
->>>>>>> 2073a08b7eb998838f0757602a9a6299f3d24803
